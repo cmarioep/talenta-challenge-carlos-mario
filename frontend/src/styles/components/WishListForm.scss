@@ -1,0 +1,88 @@
+@use '../utils/' as *;
+
+.wishListForm {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 10vh;
+    padding: 0.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top: 0.5px solid #24877E;
+
+
+    background-color: #CFEBE7;
+
+
+    @include mediaquery(medium) {
+        flex-direction: column;
+        justify-content: center;
+
+        width: 50%;
+        height: auto;
+        aspect-ratio: 1/1;
+        padding: 1rem;
+        border: unset;
+        border-radius: 10px;
+
+        box-shadow: 0px 4px 5px -5px rgba(59, 57, 57, 0.5);
+    }
+
+
+    label {
+        width: 80%;
+    }
+
+
+    &__labeltext {
+        display: none;
+
+
+        @include mediaquery(medium) {
+            display: inline-block;
+
+            width: 100%;
+            margin: 1rem 0;
+
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #24877E;
+            text-align: center;
+        }
+    }
+
+
+    &__input {
+        padding: 0.5rem;
+        width: 100%;
+        margin: 1rem 0;
+        border-radius: 10px;
+
+        font-size: 1rem;
+
+
+        @include mediaquery(medium) {
+            font-size: 1.2rem;
+        }
+    }
+
+
+    &__button {
+        padding: 0.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+
+        font-weight: bold;
+        color: #E6F4F1;
+        background-color: #24877E;
+
+        @include mediaquery(medium) {
+            width: 80%;
+            font-size: 1.2rem;
+        }
+    }
+
+}

@@ -1,0 +1,44 @@
+@use '../utils/' as *;
+
+.WishListItmes {
+    padding: 0.5rem;
+    padding-top: 11vh;
+
+
+    @include mediaquery(medium) {
+        padding: 1rem;
+        padding-top: 11vh;
+    }
+
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 10px;
+
+        font-size: 1.5rem;
+
+        box-shadow: -0.5px 0.5px 5px 1px rgba(59, 57, 57, 0.5);
+    }
+
+
+    &__button {
+        padding: 0.5rem;
+        border-radius: 10px;
+
+        font-size: 1rem;
+        font-weight: bold;
+        color: #E6F4F1;
+        background-color: #24877E;
+
+        @include mediaquery(medium) {
+            font-size: 1.2rem;
+        }
+    }
+
+}

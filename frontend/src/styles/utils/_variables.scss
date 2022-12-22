@@ -1,0 +1,65 @@
+// Map for color scheme
+$colors: (
+    primary: (
+        dark: hsl(166, 100%, 30%),
+        neutral: hsl(166, 100%, 70%),
+        light: hsl(166, 100%, 80%),
+        lightest: hsl(166, 100%, 90%),
+    ),
+    secondary: (
+        dark: hsl(225, 20%, 40%),
+        neutral: hsl(225, 20%, 61%),
+        light: hsl(225, 20%, 80%),
+        lightest: hsl(225, 80%, 90%),
+    ),
+    dark: (
+        dark: hsl(240, 33%, 2%),
+        neutral: hsl(240, 33%, 10%),
+        light: hsl(240, 33%, 25%),
+        lightest: hsl(240, 33%, 35%),
+    )
+);
+
+
+// Font families
+$sans: Calibre, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+$serif: 'Times New Roman', Times, serif;
+$fancy:  'Muli', sans-serif;
+
+
+// Map for font-size
+$fontSizes: (
+    small: clamp(0.8rem, 1vw, 1.1rem),
+    standar: clamp(1.1rem, 1.25vw, 1.25rem),
+    intermediate: clamp(28px, 2vw, 2rem),
+    medium: clamp(32px, 3vw, 48px),
+    large: clamp(48px, 4vw, 80px),
+    xlarge: clamp(60px, 10vw, 160px)
+);
+
+
+// Map breakpoints for media queries
+$breakpoints: (
+    small: 320px,
+    standar: 375px,
+    intermediate: 688px,
+    medium: 1024px,
+    large: 1280px,
+    xlarge: 1366px
+);
+
+
+// Map for z-index layers
+$layers :(
+    outerspace: 10000,
+    moon: 1000,
+    orbit: 100,
+    sky: 10,
+    everest: 1,
+    ground: 0,
+    underground: -1,
+    cortex:-10,
+    mantle:-100,
+    nucleus:-1000
+);
+
