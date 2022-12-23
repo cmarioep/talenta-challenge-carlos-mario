@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-
 // Realiza una solicitud fetch a la API del servidor y devuelve la respuesta en formato JSON
 const fetchTexts = async () => {
 
@@ -12,7 +10,7 @@ const fetchTexts = async () => {
         return texts;
 
     } catch (error) {
-        alert('Ocurrio un problema con la conexión al servidor!!!')
+        alert('Ocurrio un problema con la conexión al servidor!!!');
         console.error(error);
     }
 
@@ -32,22 +30,27 @@ export const useStoreHandleState = () => {
     const handleSetNewWish = async (newWish) => {
 
         try {
+
             const response = await fetch('http://localhost:3500/api/wishlist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ text: newWish }),
+
             });
 
             // Actualiza el estado local con la respuesta de la solicitud fetch
-            const texts = await response.json();
+            const status = response.status;
 
-            // Actualizamos el arreglo con lista de deseos en el estado
-            setServerResponse(texts);
+            if (status === 201) {
+                const newWhishList = await fetchTexts();
+                setServerResponse(newWhishList);
+            }
+
 
         } catch (error) {
-            alert('Ocurrio un problema con la conexión al servidor!!!')
+            alert('Ocurrio un problema con la conexión al servidor!!!');
             console.error(error);
         }
 
@@ -63,14 +66,18 @@ export const useStoreHandleState = () => {
                 method: 'DELETE',
             });
 
-            // Recibimos el arreglo vacío devuelto por la API y lo almacenamos en el estado
-            const texts = await response.json();
 
-            // Actualizamos el arreglo con lista de deseos en el estado
-            setServerResponse(texts);
+            // Actualiza el estado local con la respuesta de la solicitud fetch
+            const status = response.status;
+
+            if (status === 200) {
+                const newWhishList = await fetchTexts();
+                setServerResponse(newWhishList);
+            }
+
 
         } catch (error) {
-            alert('Ocurrio un problema con la conexión al servidor!!!')
+            alert('Ocurrio un problema con la conexión al servidor!!!');
             console.error(error);
         }
 
@@ -84,17 +91,21 @@ export const useStoreHandleState = () => {
 
             // Hacemos una solicitud PATCH a la ruta /api/wishlist/:index usando fetch
             const response = await fetch(`http://localhost:3500/api/wishlist/${index}`, {
-                method: 'PATCH',
+                method: 'DELETE',
             });
 
-            // Obtenemos el arreglo de textos actualizado devuelto por la API
-            const updatedTexts = await response.json();
 
-            // Actualizamos el arreglo con lista de deseos en el estado
-            setServerResponse(updatedTexts);
+            // Actualiza el estado local con la respuesta de la solicitud fetch
+            const status = response.status;
+
+            if (status === 200) {
+                const newWhishList = await fetchTexts();
+                setServerResponse(newWhishList);
+            }
+
 
         } catch (error) {
-            alert('Ocurrio un problema con la conexión al servidor!!!')
+            alert('Ocurrio un problema con la conexión al servidor!!!');
             console.error(error);
         }
 

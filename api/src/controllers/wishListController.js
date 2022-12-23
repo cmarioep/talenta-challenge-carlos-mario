@@ -10,13 +10,11 @@ export const getWhishList = (req, res) => {
 
 export const setNewWish = (req, res) => {
 
-    const text  = req.body.text;
+    const text = req.body.text;
 
     wishList.push(text);
 
-    console.log(wishList);
-
-    res.send(wishList);
+    res.status(201).send(text);
     
 }
 
@@ -27,7 +25,7 @@ export const removeWish = (req, res) => {
 
     wishList.splice(index, 1);
 
-    res.send(wishList);
+    res.sendStatus(200);
 
 }
 
@@ -36,6 +34,6 @@ export const clearWishtList = (req, res) => {
 
     wishList.splice(0, wishList.length);
 
-    res.send([]);
+    res.sendStatus(200);
     
 }

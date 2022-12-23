@@ -9,9 +9,10 @@ router.get('/wishlist', getWhishList);
 
 router.post('/wishlist', setNewWish);
 
-router.patch('/wishlist/:index', removeWish);
+router.delete('/wishlist/:index', removeWish);
 
 router.delete('/wishlist', clearWishtList);
 
 
 export default router;
+
